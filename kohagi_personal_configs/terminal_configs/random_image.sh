@@ -7,10 +7,10 @@ IMAGE_DIR="$HOME/img_terminal/"
 RANDOM_IMAGE=$(find "$IMAGE_DIR" -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) | shuf -n 1)
 
 if [ -n "$RANDOM_IMAGE" ]; then
-    kitty +kitten icat --align left --place 40x20@0x0 "$RANDOM_IMAGE"
+    kitty +kitten icat --align left --place 50x23@0x0 "$RANDOM_IMAGE"
 
 sleep 0.1
 fi
 
 # Fastfetch
-fastfetch --logo-type 'kitty' --logo-width 20
+fastfetch --logo-width 28
