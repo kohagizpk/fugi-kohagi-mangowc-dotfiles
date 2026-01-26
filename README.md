@@ -7,5 +7,5 @@ sudo pacman -Sy kitty wl-clipboard wmenu grim slurp swaybg ttf-jetbrains-mono-ne
 ## Install mango on Arch
 
 ```bash
-yay -S mangowc-git
+yay -S mangowc-git helium-browser-bin
 ```
