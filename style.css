@@ -17,8 +17,8 @@
 @define-color button-color          @color11;
 @define-color button-hover          @color13;
 
-@import '~/.config/mango/waybar/colors-waybar.css';
-@import "~/.config/mango/waybar/latte.css";
+@import 'colors-waybar.css';
+@import "latte.css";
 
 * {
     font-family: "JetBrainsMono Nerd Font";

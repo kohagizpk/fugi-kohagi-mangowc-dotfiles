@@ -2,8 +2,8 @@
 {
     "layer": "top", 
     "position": "top", 
-    "height": 30, 
-    "spacing": 4, 
+    "height": 20,
+    "spacing": 0,
 
     // Choose the order of the modules
     "modules-left": [
@@ -15,12 +15,14 @@
 	"custom/sep",
 	"pulseaudio#audio",
 	"custom/sep",
-	"temperature"
+	"temperature",
+	"custom/sep"
     ],
     "modules-center": [
-	"custom/power"
+	"tray"
     ],
     "modules-right": [
+	"custom/sep",
         "network",
         "custom/sep",
         "battery",
@@ -29,25 +31,10 @@
         "custom/sep",
         "memory",
         "custom/sep",
-        "clock",
-        "custom/sep",
-        "tray"
+        "clock"
     ],
 
     // Modules configuration
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{name}",
-        "persistent-workspaces": {
-            "*" : 9
-        }
-    },
-    "hyprland/window" : {
-        "max-length": 40,
-        "seperate-outputs": false
-    },
     "tray": {
         // "icon-size": 21,
         "spacing": 10
@@ -66,7 +53,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": "RAM: {used}GiB"
+        "format": "RAM: {used}GB"
     },
     "disk": {
         "interval": 60,
@@ -89,20 +76,8 @@
         "format": "On 󱘖",
         "format-disconnected": "Off ⚠"
     },
-    "networkmanager": {
-	"format-wifi": "Online ",
-	"format-ethernet": "Online 󱘖",
-	"format-disconnected": "Offline ⚠",
-	"on-click": "nm-applet"
-    },
         "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 90,
-        // "format-critical": "{temperatureF}°F {icon}",
         "format": "{icon} {temperatureC}°C",
-        "tooltip": true,
-        "tooltip-format": "{temperatureF}°F",
         "format-icons": ["", "", ""]
     },
     "backlight": {
@@ -114,12 +89,10 @@
         "format": "{icon} {volume}%",
         "tooltip": false,
         "format-muted": " Muted",
-        "on-click": "pamixer -t",
-	"on-click-right": "pavucontrol",
-        "on-scroll-up": "pamixer -i 2",
-        "on-scroll-down": "pamixer -d 2",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+",
+        "on-scroll-down": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%-",
         "scroll-step": 5,
-	"max-volume": 150,
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -131,30 +104,15 @@
 	}
     },
     "custom/power": {
-        "format": "",
+        "format": "",
         "tooltip": false,
-        "on-click": "wlogout -C ~/.config/mango/wlogout/style.css -l  ~/.config/mango/wlogout/layout  -b 6 --protocol layer-shell",
-        "on-click-right": "sleep 0.1s"
+        "on-click": "wlogout"
     },
    "pulseaudio#mic": {
     "format": "{format_source}",
     "format-source": " On",
     "format-source-muted": " Off",
-    "on-click": "pamixer --default-source -t"
-  },
-    "custom/notification": {
-      "tooltip": false,
-      "format": "{icon}",
-      "format-icons": {
-        "notification": "  ! ",
-        "none": "  - ",
-        "dnd-notification": "  ! ",
-        "dnd-none": "  - ",
-        "dnd-none": "  - ",
-        "inhibited-none": "  - ",
-        "dnd-inhibited-notification": "  ! ",
-        "dnd-inhibited-none": "  - "
-      }
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       },
     "custom/sep": {
         "format" : "|",
