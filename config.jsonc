@@ -15,8 +15,7 @@
 	"custom/sep",
 	"pulseaudio#audio",
 	"custom/sep",
-	"temperature",
-	"custom/sep"
+    "disk"
     ],
     "modules-center": [
 	"tray"

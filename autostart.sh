@@ -30,7 +30,7 @@ swaybg -o DP-1 -i /home/julia/Downloads/bird1.jpg >/dev/null 2>&1 &
 swaybg -o HDMI-A-1 -i /home/julia/Downloads/bird3.png >/dev/null 2>&1 &
 kanshi &
 vesktop >/dev/null 2>&1 &        # use só um dos dois
-# discord --enable-features=WebRTCPipeWireCapturer >/dev/null 2>&1 &
+discord --enable-features=WebRTCPipeWireCapturer >/dev/null 2>&1 &
 flatpak run com.spotify.Client &
 helium-browser &
 wl-clip-persist --clipboard regular --reconnect-tries 0 &
